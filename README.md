@@ -1,247 +1,86 @@
 # OPENMODELICA
 
-**Category:** CHEMICAL_PRODUCTION
-**Status:** Active development with Anticloud overlay
+> Anticloud offline package — upstream: OpenModelica/OpenModelica @ `master`.
 
 ## What This Project Does
 
-OPENMODELICA is an open-source project in the CHEMICAL_PRODUCTION category.
+OpenModelica is an open-source Modelica-based modeling and simulation environment intended for industrial and academic usage.
 
-This project provides tools, libraries, and functionality for developers
-and end users working in the CHEMICAL_PRODUCTION domain. It is part of the
-Anticloud ecosystem, which adds measured performance improvements,
-security hardening, and comprehensive documentation to upstream
-open-source projects.
+**Topics:** compiler, modelica
 
-The project addresses key challenges in CHEMICAL_PRODUCTION by providing:
+## Upstream README
 
-- A well-tested, community-driven codebase
-- Standard interfaces compatible with the broader ecosystem
-- Documentation and examples for common use cases
-- Integration points for the Anticloud overlay improvements
+# OpenModelica [![License: OSMC-PL](https://img.shields.io/badge/license-OSMC--PL-lightgrey.svg)](OSMC-License.txt)
 
-## Installation
+[OpenModelica](https://openmodelica.org) is an open-source Modelica-based modeling and
+simulation environment intended for industrial and academic usage.
 
-### Prerequisites
+## OpenModelica User's Guide
 
-Before installing OPENMODELICA, ensure you have the following:
+The [User's Guide](https://openmodelica.org/doc/OpenModelicaUsersGuide/latest/) is
+automatically generated from the documentation repository.
 
-- A compatible operating system (Linux, macOS, or Windows)
-- Required build tools as specified by the upstream project
-- Runtime dependencies per the upstream requirements
+## OpenModelica environment
 
-### From Source
+The [OpenModelica Compiler](OMCompiler/) is the core of the OpenModelica project.
+[OMEdit](OMEdit/README.md) is the graphical user interface on top of the compiler.
+[OMSimulator](OMSimulator/README.md) is a capable FMI and SSP-based Co-Simulation environment,
+available as a standalone version or integrated in OMEdit.
+In addition there are interactive environments
+[OMNotebook](OMNotebook/README.md), [OMPlot](OMPlot/README.md) and [OMShell](OMShell/README.md)
+interaction with the OMCompiler as well as various other tools:
+[OMOptim](OMOptim/README.md), [OMParser](OMParser/README.md),
+[OMSens_Qt](OMSens_Qt/README.md).
 
-To build from source, clone the repository and follow the
-upstream build instructions:
+## Working with the repository
 
-```bash
-git clone https://github.com/OpenModelica/OpenModelica/openmodelica.git
-cd openmodelica
-make
-sudo make install
-```
+See [CONTRIBUTING.md](CONTRIBUTING.md#working-with-the-repository) for how to clone,
+update, and clean the repository and its submodules.
 
-### Package Managers
-
-Depending on your platform, OPENMODELICA may be available
-through package managers such as apt, brew, or pip. Refer to
-the upstream documentation for platform-specific instructions.
-
-## Usage
-
-### Basic Usage
-
-After installation, OPENMODELICA can be invoked as follows:
+TL;DR:
 
 ```bash
-openmodelica --help
-openmodelica
+git clone --recurse-submodules https://github.com/OpenModelica/OpenModelica.git
 ```
 
-### Common Operations
+## Build OpenModelica
 
-1. **Initialization** - Set up the project environment and configuration
-2. **Execution** - Run the main functionality with appropriate parameters
-3. **Monitoring** - Check status and output during operation
-4. **Shutdown** - Cleanly terminate and save state
+* [Linux/WSL Instructions](OMCompiler/README.Linux.md)
+* [Windows Instructions](OMCompiler/README.Windows.md)
+* [macOS Instructions](OMCompiler/README-macOS.md)
+* [CMake configuration options, tests and packaging](README.cmake.md)
 
-### Examples
+We automatically generate nightly builds for
+[Windows](https://openmodelica.org/download/download-windows/) and for various flavours of
+[Linux](https://openmodelica.org/download/download-linux/). You can download and install
+them directly if you just want to run the latest development version of OpenModelica without
+the effort of compiling the sources yourself.
 
-```bash
-openmodelica --input /path/to/input --output /path/to/output
-openmodelica --config /path/to/config.yaml
-openmodelica --verbose --log-level debug
-```
+## How to contribute to the OpenModelica Compiler
 
-## API
+The long-term development of OpenModelica is supported by a non-profit organization - the
+[Open Source Modelica Consortium (OSMC)](https://openmodelica.org/home/consortium/).
 
-### Overview
-
-OPENMODELICA exposes a standard API consistent with its category.
-The API can be accessed programmatically or through the command
-line interface.
-
-### Endpoints
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | /status | Get current status |
-| POST | /execute | Execute main operation |
-| GET | /results | Retrieve results |
-| DELETE | /reset | Reset to initial state |
-
-### Authentication
-
-API authentication is handled through standard mechanisms.
-Refer to the upstream documentation for specific authentication
-requirements and token management.
-
-### Rate Limiting
-
-The API implements rate limiting to prevent abuse. Default limits
-are configurable through the configuration file.
-
-## Dependencies
-
-### Build Dependencies
-
-- Compiler (GCC, Clang, or MSVC)
-- Build system (Make, CMake, or Meson)
-- Package manager (pip, npm, or cargo)
-
-### Runtime Dependencies
-
-Runtime dependencies are managed by the upstream project build
-system. Key dependencies include:
-
-- Standard library components
-- Third-party libraries as specified in upstream documentation
-- System libraries required for operation
-
-### Optional Dependencies
-
-Some features may require additional optional dependencies.
-These are documented in the upstream README and can be
-installed separately as needed.
-
-## Configuration
-
-### Configuration File
-
-OPENMODELICA uses a configuration file for runtime settings.
-The default location is typically:
-
-- **Linux/macOS:** ~/.config/openmodelica/config.yaml
-- **Windows:** %APPDATA%\openmodelica\config.yaml
-
-### Configuration Options
-
-| Option | Type | Default | Description |
-|--------|------|---------|-------------|
-| log_level | string | info | Logging verbosity |
-| output_dir | string | ./output | Output directory |
-| max_workers | int | 4 | Maximum worker threads |
-| timeout | int | 30 | Operation timeout (seconds) |
-
-### Environment Variables
-
-The following environment variables can override configuration:
-
-- **OPENMODELICA_LOG_LEVEL** - Override log level
-- **OPENMODELICA_CONFIG** - Path to custom config file
-- **OPENMODELICA_OUTPUT** - Override output directory
-
-## Contributing
-
-Contributions to OPENMODELICA are welcome. Please follow
-these guidelines:
-
-1. **Fork the repository** and create a feature branch
-2. **Make your changes** with clear commit messages
-3. **Add tests** for new functionality
-4. **Update documentation** as needed
-5. **Submit a pull request** with a clear description
-
-### Code Style
-
-Follow the code style established in the upstream project.
-Use consistent formatting, meaningful variable names, and
-clear comments for complex logic.
-
-### Reporting Issues
-
-When reporting issues, please include:
-
-- Operating system and version
-- Project version or commit hash
-- Steps to reproduce the issue
-- Expected vs actual behavior
-- Relevant log output
+See [CONTRIBUTING.md](CONTRIBUTING.md) on how to contribute to the development.
+If you encounter any bugs, feel free to open a ticket about it.
+For general questions regarding OpenModelica there is a
+[discussions section](https://github.com/OpenModelica/OpenModelica/discussions) available.
 
 ## License
 
-**Overlay license:** Anticommons 0.1.0
-**Upstream license:** MIT
+See [OSMC-License.txt](OSMC-License.txt).
 
-This project is distributed under the MIT license.
-The Anticloud overlay is licensed under Anticommons 0.1.0,
-which ensures that improvements remain available to the
-community while preventing enclosure by any single entity.
+## How to cite
 
-## Upstream
+See the [CITATIONS](CITATION.cff) file for information on how to cite OpenModelica in
+any publications reporting work done using OpenModelica.
+For a complete list of all publications related to OpenModelica see
+[doc/bibliography/openmodelica.bib](./doc/bibliography/openmodelica.bib).
 
-**SHA-256:** `e3a6e9ed55db4e01168020cb96d571fed6c8fb05`
+## License
 
-The upstream project is pinned to the above commit hash
-to ensure reproducible builds and verifiable provenance.
+Upstream terms preserved in `THIRD_PARTY_LICENSES/`. Overlay licensed under Anticommons 0.1.0.
 
-## Benchmarks
+## Verification
 
-Benchmark results are recorded in BENCH.json.
-
-Measurements were taken on the upstream codebase with the
-Anticloud overlay applied. Key metrics include:
-
-- **Build time** - Time to compile from source
-- **Binary size** - Compiled artifact size
-- **Runtime performance** - Execution speed benchmarks
-- **Memory usage** - Peak and average memory consumption
-- **Test coverage** - Percentage of code covered by tests
-
-All measurements are reproducible and verified against the
-pinned upstream commit.
-
-## Additional Information
-
-This project is part of the Anticloud ecosystem, providing
-CHEMICAL_PRODUCTION functionality with measured performance characteristics.
-
-The overlay adds 12 improvements including performance
-optimizations, security hardening, documentation generation,
-benchmark measurement, license compliance, dependency auditing,
-SBOM generation, seal verification, quality gates, contamination
-detection, press distribution, and family background integration.
-
-## Archives and Permanent Records
-
-| Platform | Identifier | Volume |
-|---|---|---|
-| Harvard Dataverse | DOI 10.7910/DVN/YMJKOG | 145 citable datasets |
-| AIOSS verification kit | DOI 10.7910/DVN/OORKNJ | Offline hash verification |
-| Zenodo (CERN) | — | 146 records, DOI-registered |
-| OSF | — | 144 preregistered records |
-| Figshare | author 20849885 | Research data and figures |
-| Internet Archive | aioss-format, Anticode | Permanent binary specification |
-| ORCID | 0009-0009-2233-6107 | Permanent researcher ID |
-| Kaggle | pax-millennium-20 | Reproducible T4 benchmark run |
-
-
-
-## Press and Independent Publication
-
-The PAX benchmark release was distributed by Newsfile wire to 336 outlets
-(312 Web, 23 Terminal, 1 Application), including Yahoo Finance, The Globe and Mail, Business Insider, National Post, Financial Post, StreetInsider, Digital Journal, Barchart, International Business Times, and fox47 · National Law Review.
-Wire distribution makes the announcement dated, public, and indexed, which
-makes the claim checkable.
-
+Recompute the SHA3-256 of `BENCH.json` and compare to this package’s register. Any drift = invalid package.
